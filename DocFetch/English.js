@@ -1,13 +1,21 @@
-import pdf from "pdf-parse"
+import {PDFParse as pdf} from "pdf-parse"
 import fs from "fs/promises"
+const processPdf=async function () {
+  
 
-const dataBuffer=fs.readFile("C:\\Users\\user\\OneDrive\\Documents\\EnglishGrammer.pdf");
-const data=await pdf(dataBuffer);
+const dataBuffer=await fs.readFile("C:\\Users\\user\\OneDrive\\Documents\\EnglishGrammer.pdf");
+const parser=new pdf({data:dataBuffer});
+const result=await parser.getText();
 
-fs.writeFile("../Document/EnglishGrammer.pdf");
 
-// pdf(dataBuffer).then(function(data)
-// {
-//   console.log("Number of Pages:",data.numpages);
-//   console.log("Text sample:\n",data.text.substring(0,500));
-// })
+ console.log("Number of Pages:",result.pages);
+  console.log("Text sample:\n",result.text.substring(0,500));
+
+
+await fs.writeFile("../Document/EnglishGrammer.pdf",dataBuffer);
+console.log(`file has been writen `);
+
+await parser.destroy()
+
+}
+processPdf();
