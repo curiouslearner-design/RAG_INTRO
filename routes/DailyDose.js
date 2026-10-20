@@ -1,5 +1,5 @@
 import express from "express"
-import { fetchData } from "../controller/fetcher/fetchgrammer";
+import {EmbeddingController} from "../controller/User/embeding.js";
 const route =express.Router();
-route.get("/ans",fetchData);
+route.post("/ans",EmbeddingController);
 export default route;
