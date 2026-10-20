@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+// import 
+>>>>>>> 6f3e859462d383f37c9d05f76e178b9f1876affb
 
 import { PC,pineconeIndex} from "../../config/PineCone.js"
 import crypto from "crypto"
@@ -19,7 +23,10 @@ try {
     text:obj.text
    } }]
   })
+<<<<<<< HEAD
   
+=======
+>>>>>>> 6f3e859462d383f37c9d05f76e178b9f1876affb
   console.log(`successfully stored chunk (${recordId}) in pinecone!`);  
 } catch (error) {
   console.error("Issue with the Storing :",error);

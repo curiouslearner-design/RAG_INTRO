@@ -1,5 +1,6 @@
 import { ai } from "../../config/Gemini.js";
 import { pinecone} from "./pinecode.js";
+<<<<<<< HEAD
 
 
 export const EmbedingModel =  async function (Data,type="documnet"){
@@ -7,6 +8,13 @@ export const EmbedingModel =  async function (Data,type="documnet"){
 
     if(!Data || !Data===String || Data.trim()==""){
       console.warn("Empty or Invalid Data");
+=======
+export const EmbedingModel =  async function (Data,type="documnet"){
+  try {
+    if(!Data || !Data===String || Data.trim()==""){
+      console.warn("Empty or Invalid Data");
+      
+>>>>>>> 6f3e859462d383f37c9d05f76e178b9f1876affb
       return;
     }
   const embedingVector=await ai.models.embedContent({
@@ -16,7 +24,10 @@ export const EmbedingModel =  async function (Data,type="documnet"){
       outputDimensionality:768
     }
   })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f3e859462d383f37c9d05f76e178b9f1876affb
   const VECTOR=embedingVector.embeddings[0].values
   const CHUNKDATA={
     text:Data,
